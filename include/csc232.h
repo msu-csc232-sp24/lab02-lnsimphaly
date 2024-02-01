@@ -20,7 +20,7 @@
 
 #define FINISHED_PART_1 TRUE
 #define FINISHED_PART_2 TRUE
-#define FINISHED_PART_3 FALSE
+#define FINISHED_PART_3 TRUE
 
 #include <algorithm>
 #include <cassert>
@@ -85,8 +85,24 @@ class Square : public Shape {
         double side;
 };
 
-    // TODO: 3.1 Provide an inline definition of the Circle class below
+class Circle : public Shape {
+    public:
+        Circle() : radius(1.0) {} 
+        Circle(double radius) : radius(radius) {} 
 
+        double area() const override {
+            return M_PI * radius * radius;
+        }
+
+        double perimeter() const override {
+            return 2 * M_PI * radius;
+        }
+
+        ~Circle() = default;
+
+    private:
+        double radius;
+};
     // DO NOT Modify anything below this line
 } // namespace csc232
 
