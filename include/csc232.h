@@ -67,7 +67,23 @@ public:
     virtual double perimeter() const = 0;  
     virtual ~Shape() = default; 
 };
-    // TODO: 2.1 Provide an inline definition of the Square class below
+    
+class Square : public Shape {
+    public:
+        Square() : side(1.0) {}
+        double area() const override {
+            return side * side;
+     }
+
+        double perimeter() const override {
+            return 4 * side;
+    }
+
+        ~Square() = default;
+
+    private:
+        double side;
+};
 
     // TODO: 3.1 Provide an inline definition of the Circle class below
 
