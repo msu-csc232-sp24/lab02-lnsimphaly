@@ -63,23 +63,24 @@ namespace csc232
 
 class Shape {
 public:
-    virtual double area() const = 0;   
-    virtual double perimeter() const = 0;  
-    virtual ~Shape() = default; 
+    virtual double area() const = 0;   // calculates the area of the shape
+    virtual double perimeter() const = 0;  // calculates the perimeter of the shape
+    virtual ~Shape() = default; // destructor
 };
     
 class Square : public Shape {
     public:
-        Square() : side(1.0) {}
-        double area() const override {
+        Square() : side(1.0) {} // constructor initializing the side to 1.0
+
+        double area() const override { // calculates the area of the square
             return side * side;
      }
 
-        double perimeter() const override {
+        double perimeter() const override { // calculates the perimeter of the square
             return 4 * side;
     }
 
-        ~Square() = default;
+        ~Square() = default; // destructor
 
     private:
         double side;
@@ -87,18 +88,18 @@ class Square : public Shape {
 
 class Circle : public Shape {
     public:
-        Circle() : radius(1.0) {} 
-        Circle(double radius) : radius(radius) {} 
+        Circle() : radius(1.0) {} // constructor initializing the radius to 1.0
+        Circle(double radius) : radius(radius) {} // contstructor that allows the radius to be adjusted
 
-        double area() const override {
+        double area() const override { // calculates the area of the circle
             return M_PI * radius * radius;
         }
 
-        double perimeter() const override {
+        double perimeter() const override { // calculates the perimeter of the cirlce
             return 2 * M_PI * radius;
         }
 
-        ~Circle() = default;
+        ~Circle() = default; // destructor
 
     private:
         double radius;
