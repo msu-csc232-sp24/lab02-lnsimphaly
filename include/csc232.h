@@ -18,9 +18,9 @@
 #define TRUE 1
 #define EXECUTE_BLOCK FALSE
 
-#define FINISHED_PART_1 FALSE
-#define FINISHED_PART_2 FALSE
-#define FINISHED_PART_3 FALSE
+#define FINISHED_PART_1 TRUE
+#define FINISHED_PART_2 TRUE
+#define FINISHED_PART_3 TRUE
 
 #include <algorithm>
 #include <cassert>
@@ -60,13 +60,50 @@ using std::setw;
  */
 namespace csc232
 {
-    // Add any user-defined functions prescribed in your assignment below
-    // TODO: 1.1 Declare the Shape interface below
 
-    // TODO: 2.1 Provide an inline definition of the Square class below
+class Shape {
+public:
+    virtual double area() const = 0;   // calculates the area of the shape
+    virtual double perimeter() const = 0;  // calculates the perimeter of the shape
+    virtual ~Shape() = default; // destructor
+};
+    
+class Square : public Shape {
+    public:
+        Square() : side(1.0) {} // constructor initializing the side to 1.0
 
-    // TODO: 3.1 Provide an inline definition of the Circle class below
+        double area() const override { // calculates the area of the square
+            return side * side;
+     }
 
+        double perimeter() const override { // calculates the perimeter of the square
+            return 4 * side;
+    }
+
+        ~Square() = default; // destructor
+
+    private:
+        double side;
+};
+
+class Circle : public Shape {
+    public:
+        Circle() : radius(1.0) {} // constructor initializing the radius to 1.0
+        Circle(double radius) : radius(radius) {} // contstructor that allows the radius to be adjusted
+
+        double area() const override { // calculates the area of the circle
+            return M_PI * radius * radius;
+        }
+
+        double perimeter() const override { // calculates the perimeter of the cirlce
+            return 2 * M_PI * radius;
+        }
+
+        ~Circle() = default; // destructor
+
+    private:
+        double radius;
+};
     // DO NOT Modify anything below this line
 } // namespace csc232
 
